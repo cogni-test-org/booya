@@ -9,15 +9,29 @@
 
 schema_version: "0.1.4"
 
-node_id: "b927a9dd-6132-4fc9-a51e-e3cee2568e3c"
-scope_id: "b44d4394-3147-5787-acab-51546be6a3da"
+node_id: "a95e366f-b9cd-4f1d-b02f-9a0da6036a42"
+scope_id: "99c928b1-303c-5c29-8a23-ff0d86aacf61"
 scope_key: "default"
 
 intent:
-  name: node-template
+  name: booya
+  mission: "Define booya's one-line mission here — refine in .cogni/repo-spec.yaml (surfaced at session start)."
 
 cogni_dao:
-  chain_id: "8453" # Base mainnet
+  dao_contract: "0x09a0fb8c5f7c786af0e7be3daf1c0ccc87d10b87"
+  plugin_contract: "0xfe5e619260d285e63c316d22ba09c848ed233445"
+  signal_contract: "0x7c3cbe5e181afed9a60f14f92e84d9241dbbaf5a"
+  chain_id: "8453"
+  base_url: "https://proposal.cognidao.org"
+
+knowledge:
+  database: "knowledge_booya"
+  remote:
+    provider: dolthub
+    owner: "cogni-test-nodes"
+    repo: "knowledge-booya"
+    url: "https://doltremoteapi.dolthub.com/cogni-test-nodes/knowledge-booya"
+    custody: cogni-owned
 
 # Activity ledger ingestion + approver allowlist.
 # `approvers` gates the `(admin)/` route group and write routes under
@@ -30,7 +44,7 @@ activity_ledger:
   activity_sources:
     github:
       attribution_pipeline: cogni-v0.0
-      source_refs: ["Cogni-DAO/standalone-node"]
+      source_refs: ["cogni-test-org/booya"]
 
 payments:
   status: pending_activation
